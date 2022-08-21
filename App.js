@@ -7,12 +7,14 @@ import Login from './src/screens/Login';
 import SuperVisorLogin from './src/screens/SupervisorLogin';
 import EmployeeDetails from './src/screens/EmployeeDetails';
 import Register from './src/screens/Register';
+import MarkAttendance from './src/screens/MarkAttendance';
+import MyEmployeeAttendance from './src/screens/MyEmployeeAttendance';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={SCREENS.REGISTER}>
+      <Stack.Navigator initialRouteName={SCREENS.MY_EMPLOYEE_ATTENDANCE}>
         <Stack.Screen
           name={SCREENS.SPLASH}
           component={Splash}
@@ -44,6 +46,21 @@ const App = () => {
         <Stack.Screen
           name={SCREENS.REGISTER}
           component={Register}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name={SCREENS.MARK_ATTENDANCE}
+          component={MarkAttendance}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name={SCREENS.MY_EMPLOYEE_ATTENDANCE}
+          component={MyEmployeeAttendance}
           options={{
             headerShown: false,
           }}
