@@ -14,7 +14,7 @@ const App = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={SCREENS.MY_EMPLOYEE_ATTENDANCE}>
+      <Stack.Navigator initialRouteName={SCREENS.SPLASH}>
         <Stack.Screen
           name={SCREENS.SPLASH}
           component={Splash}
