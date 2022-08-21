@@ -8,6 +8,21 @@ const EmployeeDetails = () => {
   const [searchString, setSearchString] = useState(null);
   const [loading, setLoading] = useState(false);
   const [details, setDetails] = useState(null);
+  const [attendance, setAttendance] = useState(null);
+
+  const getAttendance = async function () {
+    try {
+      const {data} = await axios.get(
+        `${API.GET_EMPLOYEE_ATTENDENCE}?empId=${searchString}`,
+      );
+      console.log(data);
+      setAttendance(data);
+    } catch (error) {
+      console.log(error);
+      setAttendance(null)
+      throw error;
+    }
+  };
 
   const searchEmployee = async function () {
     try {
@@ -19,8 +34,9 @@ const EmployeeDetails = () => {
       setDetails(data);
       setLoading(false);
 
-      console.log(data);
+      console.log(details);
     } catch (error) {
+      setDetails(null);
       console.log(error);
     }
   };
@@ -39,17 +55,37 @@ const EmployeeDetails = () => {
         style={styles.searchButton}
         onPress={async () => {
           await searchEmployee();
+          await getAttendance();
         }}>
         <Text style={styles.searchButtonText}>Search</Text>
       </TouchableOpacity>
-      {details ? (
+      <View>
+        {details ? (
+          <View>
+            <Text>Name : {details?.name}</Text>
+            <Text>Aadhar Number : {details?.aadharNumber}</Text>
+            <Text>City : {details?.city}</Text>
+          </View>
+        ) : (
+          <Text>No profile found</Text>
+        )}
+      </View>
+      {attendance?.length ? (
         <View>
-          <Text>Name : {details[0]?.name}</Text>
-          <Text>Aadhar Number : {details[0]?.aadharNumber}</Text>
-          <Text>City : {details[0]?.city}</Text>
+          <Text>Attendance (Present Days)</Text>
+          {attendance.map((ele, index) => {
+            let date = new Date(ele.dateTime).toUTCString();
+            return (
+              <View key={index}>
+                <Text>{date}</Text>
+              </View>
+            );
+          })}
         </View>
       ) : (
-        <Text>No profile found</Text>
+        <View>
+          <Text>Attendance not found</Text>
+        </View>
       )}
     </View>
   );

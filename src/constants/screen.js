@@ -3,6 +3,7 @@ const SCREENS = {
   LOGIN: 'login',
   SUPERVISOR_LOGIN: 'supervisorLogin',
   EMPLOYEE_DETAILS_SCREEN: 'emploeeDetailsScreen',
+  REGISTER: 'register',
 };
 
 export default SCREENS;
