@@ -1,7 +1,15 @@
 import React, {useState} from 'react';
-import {Button, Text, TextInput, View} from 'react-native';
+import {} from 'react-native';
 import axios from 'axios';
 import API from '../../constants/api';
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  Button,
+  TextInput,
+  View,
+} from 'react-native';
 
 const MyEmployeeAttendance = () => {
   const [loading, setLoading] = useState(true);
@@ -13,7 +21,7 @@ const MyEmployeeAttendance = () => {
       const {data} = await axios.get(
         `${API.GET_MY_EMPLOYEE_ATTENDANCE}?supervisorId=1&workId=8&date=${date}`,
       );
-      
+
       setAttendance(data.data);
       setLoading(false);
     } catch (error) {
@@ -27,15 +35,16 @@ const MyEmployeeAttendance = () => {
 
       <TextInput
         placeholder="Enter date in YYYY-MM-DD"
-        onChangeText={(e)=>{
-            setDate(e)
+        onChangeText={e => {
+          setDate(e);
         }}
       />
 
       <Button
         title="Get Details"
+        style={styles.button}
         onPress={async () => {
-            console.log(date)
+          console.log(date);
           await getAttendance();
         }}
       />
@@ -68,3 +77,16 @@ const MyEmployeeAttendance = () => {
 };
 
 export default MyEmployeeAttendance;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 10,
+    margin: 10,
+  },
+  button: {
+    margin: 20,
+    backgroundColor: 'red',
+  },
+});

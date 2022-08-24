@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.1.17:3000/';
+const BASE_URL = 'http://54.202.17.76/';
 
 const API = {
   LOGIN: `${BASE_URL}login`,
