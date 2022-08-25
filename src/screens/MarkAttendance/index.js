@@ -5,6 +5,7 @@ import DocumentPicker, {types} from 'react-native-document-picker';
 import RNFS from 'react-native-fs';
 import API from '../../constants/api';
 import {uploadPhoto} from '../../helpers/uploadS3';
+import styles from './styles';
 
 const MarkAttendance = () => {
   const [fileResponse, setFileResponse] = useState([]);
@@ -53,12 +54,19 @@ const MarkAttendance = () => {
     getWork();
   }, []);
   return (
-    <View>
-      <Text>Mark Attendance</Text>
-      <Text>Select work</Text>
+    <View
+    style={styles.container}
+    >
+      <Text
+      style={styles.title}
+      >Mark Attendance</Text>
+      <Text
+      style={styles.subtitle}
+      >Select work</Text>
       {work?.map((w, index) => {
         return (
           <Text
+          style={styles.fieldview}
             key={index}
             onPress={() => {
               setSelectWork(w.workId);
@@ -86,15 +94,4 @@ const MarkAttendance = () => {
 
 export default MarkAttendance;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 10,
-    margin: 10,
-  },
-  button: {
-    margin: 20,
-    backgroundColor: 'red',
-  },
-});
+

@@ -8,6 +8,7 @@ import axios from 'axios';
 import API from '../../constants/api';
 import SCREENS from '../../constants/screen';
 import {useNavigation} from '@react-navigation/native';
+import styles from './styles';
 
 const SuperVisorLogin = () => {
   const navigation = useNavigation();
@@ -35,12 +36,14 @@ const SuperVisorLogin = () => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Supervisor Login</Text>
       <TextInput
+      style={styles.input1}
         placeholder="Enter Supervisor Id"
         onChangeText={e => {
           setEmpId(e);
         }}
       />
       <TextInput
+      style={styles.input2}
         placeholder="Enter Password"
         onChangeText={e => {
           setPassword(e);
@@ -48,7 +51,7 @@ const SuperVisorLogin = () => {
       />
       <Button
         title="Login"
-        style={styles.button}
+        style={styles.button1}
         onPress={async () => {
           await loginEmployee();
         }}
@@ -58,22 +61,4 @@ const SuperVisorLogin = () => {
 };
 export default SuperVisorLogin;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFF',
-    justifyContent: 'center',
-    textAlign: 'center',
-    padding: 40,
-  },
-  button: {
-    margin: 20,
-    backgroundColor: 'red',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingBottom: 25,
-  },
-});
+

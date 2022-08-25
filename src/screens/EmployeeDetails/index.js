@@ -44,9 +44,12 @@ const EmployeeDetails = () => {
   useEffect(() => {}, [details]);
   return (
     <View style={styles.container}>
-      <Text>Employee details screen</Text>
+      <Text
+      style={styles.title}
+      >Employee Details </Text>
       <TextInput
-        placeholder="Search employee"
+        style={styles.input}
+        placeholder="Search Employee"
         onChangeText={e => {
           setSearchString(e);
         }}
@@ -62,29 +65,33 @@ const EmployeeDetails = () => {
       <View>
         {details ? (
           <View>
-            <Text>Name : {details?.name}</Text>
-            <Text>Aadhar Number : {details?.aadharNumber}</Text>
-            <Text>City : {details?.city}</Text>
+            <Text style={styles.detailing} >Name : {details?.name}</Text>
+            <Text style={styles.detailing} >Aadhar Number : {details?.aadharNumber}</Text>
+            <Text style={styles.detailing} >City : {details?.city}</Text>
           </View>
         ) : (
-          <Text>No profile found</Text>
+          <Text
+          style={styles.text1}
+          >No profile found</Text>
         )}
       </View>
       {attendance?.length ? (
         <View>
-          <Text>Attendance (Present Days)</Text>
+          <Text style={styles.detailing} >Attendance (Present Days)</Text>
           {attendance.map((ele, index) => {
             let date = new Date(ele.dateTime).toUTCString();
             return (
               <View key={index}>
-                <Text>{date}</Text>
+                <Text style={styles.detailing} >{date}</Text>
               </View>
             );
           })}
         </View>
       ) : (
         <View>
-          <Text>Attendance not found</Text>
+          <Text
+          style={styles.text1}
+          >Attendance not found</Text>
         </View>
       )}
     </View>

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {} from 'react-native';
 import axios from 'axios';
 import API from '../../constants/api';
+import styles from './styles';
 import {
   StyleSheet,
   Text,
@@ -30,10 +31,15 @@ const MyEmployeeAttendance = () => {
   };
 
   return (
-    <View>
-      <Text>My employee attendance</Text>
+    <View
+    style={styles.container}
+    >
+      <Text
+      style={styles.title}
+      >My Employee Attendance</Text>
 
       <TextInput
+      style={styles.input}
         placeholder="Enter date in YYYY-MM-DD"
         onChangeText={e => {
           setDate(e);
@@ -41,15 +47,18 @@ const MyEmployeeAttendance = () => {
       />
 
       <Button
+      
         title="Get Details"
-        style={styles.button}
         onPress={async () => {
           console.log(date);
           await getAttendance();
         }}
       />
+     
       {loading ? (
-        <Text>Loading</Text>
+        <Text
+        style={styles.loading}
+        >Loading</Text>
       ) : (
         <View>
           {attendance?.map((emp, index) => {
@@ -61,7 +70,9 @@ const MyEmployeeAttendance = () => {
                   flexDirection: 'row',
                   justifyContent: 'space-around',
                 }}>
-                <Text>Name : {emp.name} </Text>
+                <Text 
+                style={styles.detailing}
+                >Name : {emp.name} </Text>
                 {emp.present ? (
                   <Text style={{color: 'green'}}>present</Text>
                 ) : (
@@ -78,15 +89,3 @@ const MyEmployeeAttendance = () => {
 
 export default MyEmployeeAttendance;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 10,
-    margin: 10,
-  },
-  button: {
-    margin: 20,
-    backgroundColor: 'red',
-  },
-});

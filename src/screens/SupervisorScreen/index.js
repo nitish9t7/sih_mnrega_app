@@ -2,11 +2,14 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View, Button} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import SCREENS from '../../constants/screen';
+import styles from './styles';
 const SupervisorScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>Supervisor Screen</Text>
+      <Text
+      style={styles.title}
+      >Supervisor</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
@@ -41,17 +44,4 @@ const SupervisorScreen = () => {
 
 export default SupervisorScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    textAlign: 'center',
-    padding: 20,
-    margin: 50,
-  },
-  button: {
-    margin: 20,
-    backgroundColor: 'red',
-  },
-});
+

@@ -11,24 +11,30 @@ const styles = StyleSheet.create({
   },
 
   button: {
+    margin: 20,
     backgroundColor: '#CB701D',
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
     borderRadius: 10,
-    margin: 10,
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#fff',
+    fontFamily: 'serif',
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingLeft: 60,
+    paddingRight: 60,
   },
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
-    fontStyle: 'poppins',
+    color: '#fff',
+    
   },
   title: {
     //fontStyle: 'italic',
     fontWeight: 'bold',
     marginBottom: 10,
-    fontSize: 22,
+    fontSize: 30,
+
   },
 });
 

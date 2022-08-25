@@ -6,10 +6,17 @@ import {uploadToS3} from '../../helpers/uploadS3';
 import RNFS from 'react-native-fs';
 import axios from 'axios';
 import API from '../../constants/api';
+import styles from './styles';
 const Register = () => {
   const [name, setName] = useState(null);
   const [aadharNumber, setAadharNumber] = useState(null);
   const [empId, setEmpId] = useState(null);
+  const [phone,setPhone] = useState(null);
+  const [city, setCity] = useState(null);
+  const [supervisorId, setSupervisorId] = useState(null);
+  const [workId, setWorkId] = useState(null);
+  const [doB, setDoB] = useState(null);
+
   const [fileResponse, setFileResponse] = useState([]);
   const [fileData, setFileData] = useState(null);
 
@@ -44,28 +51,69 @@ const Register = () => {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Register New Employee</Text>
+      <Text
+      style={styles.title}
+      >Register New Employee</Text>
       <TextInput
+      style={styles.input}
         placeholder="Enter name"
         onChangeText={e => {
           setName(e);
         }}
       />
       <TextInput
+      style={styles.input}
         placeholder="Enter Aadhar Number"
         onChangeText={e => {
           setAadharNumber(e);
         }}
       />
       <TextInput
+      style={styles.input}
         placeholder="Enter Emp Id"
         onChangeText={e => {
           setEmpId(e);
         }}
       />
+       <TextInput
+      style={styles.input}
+        placeholder="Enter PhoneNo."
+        onChangeText={e => {
+          setPhone(e);
+        }}
+      />
+       <TextInput
+      style={styles.input}
+        placeholder="Enter City"
+        onChangeText={e => {
+          setCity(e);
+        }}
+      />
+       <TextInput
+      style={styles.input}
+        placeholder="Enter Supervisor Id"
+        onChangeText={e => {
+          setSupervisorId(e);
+        }}
+      />
+       <TextInput
+      style={styles.input}
+        placeholder="Enter Work Id"
+        onChangeText={e => {
+          setWorkId(e);
+        }}
+      />
+       <TextInput
+      style={styles.input1}
+        placeholder="DOB"
+        onChangeText={e => {
+          setDoB(e);
+        }}
+      />
+
       <Button
         style={styles.button}
-        title="Select Video 📑"
+        title="Select Image 📑"
         onPress={handleDocumentSelection}
       />
       <Button
@@ -82,15 +130,4 @@ const Register = () => {
 
 export default Register;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 10,
-    margin: 10,
-  },
-  button: {
-    margin: 20,
-    backgroundColor: 'red',
-  },
-});
+
