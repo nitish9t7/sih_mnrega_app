@@ -33,7 +33,7 @@ const SuperVisorLogin = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Supervisor Login Screen</Text>
+      <Text style={styles.title}>Supervisor Login</Text>
       <TextInput
         placeholder="Enter Supervisor Id"
         onChangeText={e => {
@@ -61,14 +61,19 @@ export default SuperVisorLogin;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF',
     justifyContent: 'center',
     textAlign: 'center',
-    padding: 20,
-    margin: 50,
+    padding: 40,
   },
   button: {
     margin: 20,
     backgroundColor: 'red',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingBottom: 25,
   },
 });
