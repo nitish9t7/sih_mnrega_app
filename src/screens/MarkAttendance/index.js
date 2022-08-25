@@ -57,7 +57,7 @@ const MarkAttendance = () => {
       // data.append('supervisorId', '123');
       await axios({
         method: 'post',
-        url: 'http://172.21.3.215:3000/upload/',
+        url: API.UPLOAD,
         data: data,
         headers: {'Content-Type': 'multipart/form-data'},
       })
