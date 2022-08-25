@@ -8,6 +8,7 @@ const API = {
   GET_ATTACHED_WORK: `${BASE_URL}getAttachedWork`,
   MARK_ATTENDANCE: `${BASE_URL}markAttendence`,
   GET_MY_EMPLOYEE_ATTENDANCE: `${BASE_URL}getMyEmployeesAttendence`,
+  HIRE_EMPLOYEE: `${BASE_URL}changeSupervisor`,
 };
 
 export default API;

@@ -17,17 +17,15 @@ const SuperVisorLogin = () => {
   const loginEmployee = async function () {
     try {
       console.log('logging in');
-      const response = await axios.post(API.LOGIN, {
-        empId,
-        password,
-      });
-      // if (response.status === 200) {
-      //   console.log('Login Success');
-        navigation.navigate(SCREENS.SUPERVISOR_SCREEN);
-      // } else {
-      //   console.log('Login Failed');
-        
-      // }
+      const response = await axios
+        .post(API.LOGIN, {
+          empId,
+          password,
+        })
+        .then(function (response) {
+          console.log('Login Success');
+          navigation.navigate(SCREENS.SUPERVISOR_SCREEN);
+        });
       console.log(response);
     } catch (error) {
       throw error;
@@ -53,7 +51,6 @@ const SuperVisorLogin = () => {
         style={styles.button}
         onPress={async () => {
           await loginEmployee();
-          
         }}
       />
     </SafeAreaView>
@@ -65,8 +62,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 10,
-    margin: 10,
+    justifyContent: 'center',
+    textAlign: 'center',
+    padding: 20,
+    margin: 50,
   },
   button: {
     margin: 20,

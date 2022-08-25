@@ -19,7 +19,7 @@ const Splash = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <Text>Splash Screen</Text>
+      <Text>MNREGA ATTENDANCE SYSTEM</Text>
     </View>
   );
 };

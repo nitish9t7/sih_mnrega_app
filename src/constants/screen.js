@@ -6,6 +6,8 @@ const SCREENS = {
   REGISTER: 'register',
   MARK_ATTENDANCE: 'markAttendance',
   MY_EMPLOYEE_ATTENDANCE: 'myEmployeeAttendance',
+  SUPERVISOR_SCREEN: 'supervisorScreen',
+  HIRE: 'hireEmployee',
 };
 
 export default SCREENS;
