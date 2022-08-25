@@ -7,7 +7,7 @@ const Login = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>Login Screen</Text>
+      <Text style={styles.title}>MNREGA ATTENDANCE</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {

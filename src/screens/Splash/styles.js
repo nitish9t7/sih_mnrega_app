@@ -3,16 +3,20 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
     backgroundColor: '#CB701D',
+    height: '100%',
   },
-  body: {
-    backgroundColor: '#CB701D',
-    margin: '10px',
-    padding: '10px',
+
+  title: {
+    textAlign: 'center',
+    fontFamily: 'arial',
+    fontSize: 22,
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
 

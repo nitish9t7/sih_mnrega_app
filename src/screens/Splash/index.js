@@ -19,7 +19,7 @@ const Splash = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <Text>MNREGA ATTENDANCE SYSTEM</Text>
+      <Text style={styles.title}>MNREGA ATTENDANCE SYSTEM</Text>
     </View>
   );
 };
